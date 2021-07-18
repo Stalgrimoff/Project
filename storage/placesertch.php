@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Тарифы</title>
+	<title>Склад</title>
 </head>
 <body>
 	<form method="post">
@@ -23,44 +23,43 @@ $poisk = $_POST['poisk'];
 $reset = $_POST['reset'];
 if (empty($poisk))
 {
-	$sql = "SELECT * FROM tariff";
+	$sql = "SELECT * FROM placement";
 	$result = mysqli_query($link, $sql);
 	echo '<table border=1>'.
 		 '<tr>'.
-		 '<td>ID</td>'.
-		 '<td>Название тарифа</td>'.
-		 '<td>Вес</td>'.
-		 '<td>Длительность хранения</td>'.
-
+		 '<td>ID склада</td>'.
+		 '<td>Название склада</td>'.
+		 '<td>Ряд</td>'.
+		 '<td>Ячейка</td>'.
 		 '</tr>';
 		 while ($row = mysqli_fetch_array($result)) {
 		 	echo 
 		 	'<tr>'.
-		 	"<td>{$row['id_tariff']}</td>".
-		 	"<td>{$row['name_tarif']}</td>".
-		 	"<td>{$row['weight']}</td>".
-		 	"<td>{$row['storage_life']}</td>".
+		 	"<td>{$row['id_place']}</td>".
+		 	"<td>{$row['warehouse']}</td>".
+		 	"<td>{$row['string']}</td>".
+		 	"<td>{$row['position']}</td>".
 		 	'</tr>';
 		 }
 		 echo '</table>';
 } else {
-	$sqllike = "SELECT * FROM tariff WHERE id_tariff LIKE '%$poisk%' OR name_tarif LIKE
-	'%$poisk%' OR weight LIKE '%$poisk%' OR storage_life LIKE '%$poisk%' ";
+	$sqllike = "SELECT * FROM placement WHERE id_place LIKE '%$poisk%' OR warehouse LIKE '%$poisk%' OR string LIKE
+	'%$poisk%' OR position LIKE '%$poisk%' ";
 	$res = mysqli_query($link, $sqllike);
 	echo '<table border=1>'.
 		 '<tr>'.
-		 '<td>ID</td>'.
-		 '<td>Название тарифа</td>'.
-		 '<td>Вес</td>'.
-		 '<td>Длительность хранения</td>'.
+		 '<td>ID склада</td>'.
+		 '<td>Название склада</td>'.
+		 '<td>Ряд</td>'.
+		 '<td>Ячейка</td>'.
 		 '</tr>';
 		while ($row1 = mysqli_fetch_array($res)) {
 		 	echo 
 		 	'<tr>'.
-		 	"<td>{$row1['id_tariff']}</td>".
-		 	"<td>{$row1['name_tarif']}</td>".
-		 	"<td>{$row1['weight']}</td>".
-		 	"<td>{$row1['storage_life']}</td>".
+		 	"<td>{$row1['id_place']}</td>".
+		 	"<td>{$row1['warehouse']}</td>".
+		 	"<td>{$row1['string']}</td>".
+		 	"<td>{$row1['position']}</td>".
 		 	'</tr>';
 		 }
 		 echo '</table>';
@@ -71,7 +70,7 @@ if (empty($poisk))
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Тарифы</title>
+	<title>Склад</title>
 </head>
 <body>
 	<form action="admin.php" method="post">

@@ -4,12 +4,12 @@
     $id_place = htmlentities(trim($_POST['id_place']));
     $id_client = htmlentities(trim($_POST['id_client']));
     $id_tariff = htmlentities(trim($_POST['id_tariff']));
-    $price = htmlentities(trim($_POST['price']));
+    $summa = htmlentities(trim($_POST['summa']));
 
-    if (isset($id_prod) && isset($id_place) && isset($id_client) && isset($id_tariff) && isset($price))
+    if (isset($id_place) && isset($id_client) && isset($id_tariff) && isset($summa))
     {
         //формируем запрос на добавление
-        $sql = "INSERT INTO `post` (`id_place`, `id_client`, `id_tariff`, `price`) VALUES ('$id_place', '$id_client', '$id_tariff', 'price')";
+        $sql = "INSERT INTO product (`id_place`, `id_client`, `id_tariff`, `summa`) VALUES ('$id_place', '$id_client', '$id_tariff', '$summa')";
         //проверка результата на добавление
         $result = mysqli_query($link, $sql);
         if($result){

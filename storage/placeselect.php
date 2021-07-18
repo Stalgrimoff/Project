@@ -9,7 +9,7 @@ $kol = 2; //количество записей для вывода
 $art = ($page * $kol) - $kol;
 
 //Определяем все количество записей в таблице
-$res = mysqli_query($link, "SELECT COUNT(*) FROM tariff ");
+$res = mysqli_query($link, "SELECT COUNT(*) FROM placement ");
 $row = mysqli_fetch_row($res);
 $total = $row[0];
 
@@ -18,11 +18,11 @@ $str_pag = ceil($total / $kol);
 
 //формируем пагинацию
 for ($i = 1; $i <= $str_pag; $i++){
-  echo "<a href=tariffselect.php?page=".$i."> Страница ".$i."</a>";
+  echo "<a href=placeselect.php?page=".$i."> Страница ".$i."</a>";
 }
 echo "<br>";
 //запрос и вывод записей
-$result = mysqli_query($link, "SELECT id_tariff, name_tarif, weight, storage_life FROM tariff LIMIT $art,$kol");
+$result = mysqli_query($link, "SELECT * FROM placement LIMIT $art,$kol");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,22 +32,22 @@ $result = mysqli_query($link, "SELECT id_tariff, name_tarif, weight, storage_lif
     <title>Document</title>
 </head>
 <body>
-    <h2> Таблица "Тарифы"</h2>
+    <h2> Таблица "Склад"</h2>
     <table border=1>
           <tr>
-          <td>Код Тарифа</td>
-          <td>Название</td>
-          <td>Вес</td>
-          <td>Длительноть хранения</td>
+          <td>ID склада</td>
+          <td>Название склада</td>
+          <td>Ряд</td>
+          <td>Ячейка</td>
           </tr>
 <?php
         while ($row = mysqli_fetch_array($result)) {
             echo '<tr>'.
-            "<td> {$row['id_tariff']}</td>".
-            "<td> {$row['name_tarif']}</td>".
-            "<td> {$row['weight']}</td>".
-            "<td> {$row['storage_life']}</td>".
-            '</tr>';
+            "<td> {$row['id_place']}</td>".
+            "<td> {$row['warehouse']}</td>".
+            "<td> {$row['string']}</td>".
+            "<td> {$row['position']}</td>".
+            '</tr>'; 
         }
 ?>
 </table>

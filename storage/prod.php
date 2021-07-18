@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$sql_view = "CREATE VIEW prod AS SELECT product.id_prod, product.id_place, client.FIO, tariff.name_tarif, product.price FROM product, client, tariff WHERE product.id_client=client.id_client AND product.id_tariff=tariff.id_tariff";
+		$sql_view = "CREATE VIEW prod AS SELECT product.id_prod, placement.warehouse, client.FIO, tariff.name_tarif, product.summa FROM product, placement, client, tariff WHERE product.id_place = placement.id_place AND product.id_client=client.id_client AND product.id_tariff=tariff.id_tariff";
 		$result_view = mysqli_query($link, $sql_view);
 	}
 	?>
@@ -34,10 +34,10 @@
 	{
 		echo '<tr>'.
 		"<td> {$row['id_prod']}</td>".
-		"<td> {$row['id_place']}</td>".
+		"<td> {$row['warehouse']}</td>".
 		"<td> {$row['FIO']}</td>".
         "<td> {$row['name_tarif']}</td>".
-        "<td> {$row['price']}</td>".
+        "<td> {$row['summa']}</td>".
 		'</tr>';
 	}
 	?>

@@ -42,6 +42,7 @@ include 'conn.php';
 				<td colspan="2"><input type="submit" name="Сохранить"></td>
 			</tr>
 		</table>
+	
 	</form>
 	<form action="admin.php" method="post">
 		<input type="submit" value="Вернуться назад">

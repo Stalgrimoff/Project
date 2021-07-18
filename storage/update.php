@@ -1,9 +1,9 @@
 <?php
 include 'conn.php';
 
-		if(isset($_POST['name_tarif'])){
+		if(isset($_POST['warehouse'])){
 			if (isset($_GET['red_id'])){
-				$sql_update = "UPDATE tariff SET name_tarif = '{$_POST['name_tarif']}', weight = '{$_POST['weight']}', storage_life = '{$_POST['storage_life']}' WHERE id_tariff = {$_GET['red_id']}";
+				$sql_update = "UPDATE placement SET warehouse = '{$_POST['warehouse']}', string = '{$_POST['string']}', position = '{$_POST['position']}' WHERE id_place = {$_GET['red_id']}";
 				$result_update = mysqli_query($link,$sql_update);
 			}
 			if ($result_update){
@@ -14,7 +14,7 @@ include 'conn.php';
 		}
 
 		if (isset($_GET['red_id'])){
-			$sql_select = "SELECT id_tariff, name_tarif, weight, storage_life FROM tariff WHERE id_tariff = {$_GET['red_id']}";
+			$sql_select = "SELECT id_place, warehouse, string, position FROM placement WHERE id_place = {$_GET['red_id']}";
 			$result_select = mysqli_query($link, $sql_select);
 			$row = mysqli_fetch_array($result_select);
 		}
@@ -31,16 +31,16 @@ include 'conn.php';
 	<form action="" method="post">
 		<table>
 			<tr>
-				<td>ФИО</td>
-				<td><input type="text" name="name_tarif" value="<?=isset($_GET['red_id']) ? $row['name_tarif'] : ''; ?>"></td>
+				<td>Склад</td>
+				<td><input type="text" name="warehouse" value="<?=isset($_GET['red_id']) ? $row['warehouse'] : ''; ?>"></td>
 			</tr>
 			<tr>
-				<td>Телефон</td>
-				<td><input type="text" name="weight" value="<?=isset($_GET['red_id']) ? $row['weight'] : ''; ?>"></td>
+				<td>Ряд</td>
+				<td><input type="text" name="string" value="<?=isset($_GET['red_id']) ? $row['string'] : ''; ?>"></td>
 			</tr>
 			<tr>
-				<td>Дата начала работы</td>
-				<td><input type="time" name="storage_life" value="<?=isset($_GET['red_id']) ? $row['storage_life'] : ''; ?>"></td>
+				<td>Ячейка</td>
+				<td><input type="text" name="position" value="<?=isset($_GET['red_id']) ? $row['position'] : ''; ?>"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" name="Сохранить"></td>

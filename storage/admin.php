@@ -38,7 +38,7 @@ if (!empty($exit)){
             </tr>
         </table>
     </form>
-     <h3>Сортировка</h3>
+    <h3>Сортировка</h3>
      <form action="tarifsort.php" method="post" name="action">
         <table>
             <tr>
@@ -104,7 +104,7 @@ if (!empty($exit)){
     <h1>Работа с таблицей placement</h1>
     
     <h3>Вывод</h3>
-    <form action=".php" method="post" name="action">
+    <form action="placeselect.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Вывести данные"></td>
@@ -120,7 +120,7 @@ if (!empty($exit)){
         </table>
     </form>
     <h3>Сортировка</h3>
-     <form action="carsort.php" method="post" name="action">
+     <form action="placsort.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Сортировать данные"></td>
@@ -128,7 +128,7 @@ if (!empty($exit)){
         </table>
     </form>
     <h3>Поиск</h3>
-    <form action=".php" method="post" name="action">
+    <form action="placesertch.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Поиск данных"></td>
@@ -136,7 +136,7 @@ if (!empty($exit)){
         </table>
     </form>
     <h3>Обновление</h3>
-    <form action=".php" method="post" name="action">
+    <form action="upplace.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Обновление данных"></td>
@@ -148,7 +148,7 @@ if (!empty($exit)){
 
     <h1>Работа с таблицей product</h1>
     <h3>Вывод</h3>
-    <form action=".php" method="post" name="action">
+    <form action="prodselect.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Вывести данные"></td>
@@ -156,23 +156,15 @@ if (!empty($exit)){
         </table>
     </form>
     <h3>Ввод</h3>
-    <form action=".php" method="post" name="action">
+    <form action="indexproduct.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Добавить данные"></td>
             </tr>
         </table>
     </form>
-    <h3>Сортировка</h3>
-     <form action="indexsort.php" method="post" name="action">
-        <table>
-            <tr>
-                <td><input type="submit" value="Сортировать данные"></td>
-            </tr>
-        </table>
-    </form>
     <h3>Поиск</h3>
-    <form action=".php" method="post" name="action">
+    <form action="prodsertch.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Поиск данных"></td>
@@ -180,7 +172,7 @@ if (!empty($exit)){
         </table>
     </form>
     <h3>Обновление</h3>
-    <form action=".php" method="post" name="action">
+    <form action="upprod.php" method="post" name="action">
         <table>
             <tr>
                 <td><input type="submit" value="Обновление данных"></td>

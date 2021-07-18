@@ -9,7 +9,7 @@ $kol = 2; //количество записей для вывода
 $art = ($page * $kol) - $kol;
 
 //Определяем все количество записей в таблице
-$res = mysqli_query($link, "SELECT COUNT(*) FROM tariff ");
+$res = mysqli_query($link, "SELECT COUNT(*) FROM product ");
 $row = mysqli_fetch_row($res);
 $total = $row[0];
 
@@ -18,11 +18,11 @@ $str_pag = ceil($total / $kol);
 
 //формируем пагинацию
 for ($i = 1; $i <= $str_pag; $i++){
-  echo "<a href=tariffselect.php?page=".$i."> Страница ".$i."</a>";
+  echo "<a href=prodselect.php?page=".$i."> Страница ".$i."</a>";
 }
 echo "<br>";
 //запрос и вывод записей
-$result = mysqli_query($link, "SELECT id_tariff, name_tarif, weight, storage_life FROM tariff LIMIT $art,$kol");
+$result = mysqli_query($link, "SELECT product.id_prod, placement.warehouse, client.FIO, tariff.name_tarif, product.summa FROM product INNER JOIN placement ON product.id_place = placement.id_place INNER JOIN client ON product.id_client = client.id_client INNER JOIN tariff ON product.id_tariff = tariff.id_tariff LIMIT $art,$kol");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,21 +32,23 @@ $result = mysqli_query($link, "SELECT id_tariff, name_tarif, weight, storage_lif
     <title>Document</title>
 </head>
 <body>
-    <h2> Таблица "Тарифы"</h2>
+    <h2> Таблица "Хранение"</h2>
     <table border=1>
           <tr>
-          <td>Код Тарифа</td>
-          <td>Название</td>
-          <td>Вес</td>
-          <td>Длительноть хранения</td>
+            <td>Код хранения</td>
+            <td>Наименование склада</td>
+            <td>ФИО клиента</td>
+            <td>Название тарифа</td>
+            <td>Стоимость</td>
           </tr>
 <?php
         while ($row = mysqli_fetch_array($result)) {
             echo '<tr>'.
-            "<td> {$row['id_tariff']}</td>".
-            "<td> {$row['name_tarif']}</td>".
-            "<td> {$row['weight']}</td>".
-            "<td> {$row['storage_life']}</td>".
+              "<td>{$row['id_prod']}</td>".
+              "<td>{$row['warehouse']}</td>".
+              "<td>{$row['FIO']}</td>".
+              "<td>{$row['name_tarif']}</td>".
+              "<td>{$row['summa']}</td>".
             '</tr>';
         }
 ?>

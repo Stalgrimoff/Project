@@ -29,16 +29,16 @@
 				<td>Редактирование</td>
 			</tr>
 			<?php
-			$sql_state = "SELECT id_tariff, name_tarif, weight, storage_life FROM tariff";
-			$result_state = mysqli_query($link, $sql_state);
-			while ($row_state = mysqli_fetch_array($result_state)){
+			$sql_tariff = "SELECT id_tariff, name_tarif, weight, storage_life FROM tariff";
+			$result_tariff = mysqli_query($link, $sql_tariff);
+			while ($row_tariff = mysqli_fetch_array($result_tariff)){
 				echo '<tr>'.
-						"<td>{$row_state['id_tariff']}</td>".
-						"<td>{$row_state['name_tarif']}</td>".
-						"<td>{$row_state['weight']}</td>".
-						"<td>{$row_state['storage_life']}</td>".
-						"<td><a href='?del_id={$row_state['id_tariff']}'>Удалить</a></td>".
-						"<td><a href='update4.php?red_id={$row_state['id_tariff']}'>Изменить</a></td>".
+						"<td>{$row_tariff['id_tariff']}</td>".
+						"<td>{$row_tariff['name_tarif']}</td>".
+						"<td>{$row_tariff['weight']}</td>".
+						"<td>{$row_tariff['storage_life']}</td>".
+						"<td><a href='?del_id={$row_tariff['id_tariff']}'>Удалить</a></td>".
+						"<td><a href='update4.php?red_id={$row_tariff['id_tariff']}'>Изменить</a></td>".
 						'</tr>';
 			}
 			?>

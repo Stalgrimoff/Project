@@ -1,14 +1,14 @@
 <?php
     include 'conn.php';
-    $id_place = array();
     $id_place = htmlentities(trim($_POST['id_place']));
-    $row = htmlentities(trim($_POST['row']));
-    $point = htmlentities(trim($_POST['point']));
+    $warehouse = htmlentities(trim($_POST['warehouse']));
+    $string = htmlentities(trim($_POST['string']));
+    $position = htmlentities(trim($_POST['position']));
 
-    if (isset($id_place) && isset($row) && isset($point))
+    if (isset($warehouse) && isset($string) && isset($position))
     {
         //формируем запрос на добавление
-        $sql = "INSERT INTO  car (id_place, row, point) VALUES ('$id_place', '$row', '$point')";
+        $sql = "INSERT INTO  placement (`warehouse`, `string`, `position`) VALUES ('$warehouse', '$string', '$position')";
         //проверка результата на добавление
         $result = mysqli_query($link, $sql);
         if($result){

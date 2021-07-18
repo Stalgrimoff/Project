@@ -11,15 +11,15 @@
         <table>
             <tr>
                 <td>Введите склад</td>
-                <td> <input type="text" name="id_place"></td>
+                <td> <input type="text" name="warehouse"></td>
             </tr>
             <tr>
                 <td>Введите ряд</td>
-                <td> <input type="text" name="row"></td>
+                <td> <input type="text" name="string"></td>
             </tr>
             <tr>
                 <td>Введите место</td>
-                <td> <input type="text" name="point"></td>
+                <td> <input type="text" name="position"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Добавить данные">
